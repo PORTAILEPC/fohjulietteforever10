@@ -6,7 +6,7 @@
   <title>En mémoire de [Nom du Fidèle] – Portail EPC</title>
 
   <!-- Sécurité -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.jsdelivr.net https://www.youtube.com https://www.youtube-nocookie.com https://fonts.googleapis.com https://fonts.gstatic.com https://*.googleusercontent.com https://i.imgur.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; img-src 'self' https: data:; frame-src https://www.youtube.com https://www.youtube-nocookie.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.jsdelivr.net https://www.youtube.com https://www.youtube-nocookie.com https://fonts.googleapis.com https://fonts.gstatic.com https://*.googleusercontent.com https://i.imgur.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; img-src 'self' https: data:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; media-src https:;">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 
@@ -22,7 +22,7 @@
       background-color: #f8f5f2;
       color: #333;
     }
-    h1, h2, h3, h5 {
+    h1, h2, h3, h4, h5 {
       font-family: 'Playfair Display', serif;
     }
     .hero {
@@ -40,9 +40,7 @@
       font-size: 2.8rem;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
-    .section {
-      padding: 60px 0;
-    }
+    .section { padding: 60px 0; }
     .footer {
       background: #2c3e50;
       color: #ecf0f1;
@@ -78,7 +76,7 @@
     </select>
   </div>
 
-  <!-- Sélecteur de bannière (sécurisé) -->
+  <!-- Sélecteur de bannière -->
   <div class="banner-selector">
     <select id="bannerSelect" class="form-select form-select-sm" onchange="changeBanner(this.value)">
       <option value="images/banner-1.jpg">Bannière 1</option>
@@ -121,9 +119,7 @@
       <h2 class="text-center mb-5" data-i18n="bio-title">Biographie</h2>
       <div class="row justify-content-center">
         <div class="col-lg-8">
-          <p data-i18n="bio-text">
-            Écrivez ici la biographie du fidèle : sa vie, sa foi, son engagement dans la paroisse, sa famille, ses valeurs...
-          </p>
+          <p data-i18n="bio-text">Écrivez ici la biographie du fidèle : sa vie, sa foi, son engagement dans la paroisse, sa famille, ses valeurs...</p>
         </div>
       </div>
     </div>
@@ -133,24 +129,14 @@
   <section id="galerie" class="section bg-white">
     <div class="container">
       <h2 class="text-center mb-5" data-i18n="gallery-title">Galerie Photos</h2>
-      
       <div class="row g-3 mb-4">
-        <div class="col-md-4">
-          <img src="https://lien-direct-photo-1.jpg" class="img-fluid rounded shadow-sm" alt="Photo 1">
-        </div>
-        <div class="col-md-4">
-          <img src="https://lien-direct-photo-2.jpg" class="img-fluid rounded shadow-sm" alt="Photo 2">
-        </div>
-        <div class="col-md-4">
-          <img src="https://lien-direct-photo-3.jpg" class="img-fluid rounded shadow-sm" alt="Photo 3">
-        </div>
+        <div class="col-md-4"><img src="https://lien-direct-photo-1.jpg" class="img-fluid rounded shadow-sm" alt="Photo 1"></div>
+        <div class="col-md-4"><img src="https://lien-direct-photo-2.jpg" class="img-fluid rounded shadow-sm" alt="Photo 2"></div>
+        <div class="col-md-4"><img src="https://lien-direct-photo-3.jpg" class="img-fluid rounded shadow-sm" alt="Photo 3"></div>
       </div>
-
       <div class="text-center">
-        <a href="https://photos.google.com/share/VOTRE_ALBUM_PUBLIC" target="_blank" class="btn btn-primary btn-lg">
-          Voir l’album photos complet
-        </a>
-        <p class="text-muted mt-2"><small>Les photos sont hébergées en externe pour préserver l’espace de stockage</small></p>
+        <a href="https://photos.google.com/share/VOTRE_ALBUM_PUBLIC" target="_blank" class="btn btn-primary btn-lg">Voir l’album photos complet</a>
+        <p class="text-muted mt-2"><small>Les photos sont hébergées en externe</small></p>
       </div>
     </div>
   </section>
@@ -172,7 +158,7 @@
     </div>
   </section>
 
-  <!-- Médias -->
+  <!-- MÉDIAS -->
   <section id="medias" class="section bg-light">
     <div class="container">
       <div class="text-center mb-5">
@@ -180,41 +166,81 @@
         <p class="text-muted" data-i18n="medias-subtitle">Télévision et Radio en mémoire et en hommage</p>
       </div>
 
-      <div class="row g-4">
-        <div class="col-lg-7">
+      <!-- TÉLÉVISION -->
+      <h4 class="mb-3">?? Télévision</h4>
+      <div class="row g-4 mb-5">
+        <div class="col-lg-6">
           <div class="card border-0 shadow-sm h-100">
-            <div class="card-header bg-dark text-white">
-              <h5 class="mb-0">?? Télévision en boucle</h5>
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">Chaîne Générale</h5>
+              <span class="badge bg-secondary">En boucle</span>
             </div>
             <div class="card-body p-0">
               <div class="ratio ratio-16x9">
-                <iframe 
-                  src="https://www.youtube-nocookie.com/embed/videoseries?list=PLAYLIST_ID&autoplay=0&loop=1&rel=0" 
-                  title="Télévision Portail EPC"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen
-                  loading="lazy">
-                </iframe>
+                <iframe id="tv-general" src="https://www.youtube-nocookie.com/embed/videoseries?list=GENERAL_TV_PLAYLIST_ID&autoplay=0&loop=1&rel=0" allowfullscreen loading="lazy"></iframe>
               </div>
             </div>
-            <div class="card-footer bg-white">
-              <small class="text-muted">Diffusion en boucle • Contenu Portail EPC</small>
+            <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+              <small class="text-muted">Contenu commun</small>
+              <button class="btn btn-sm btn-outline-dark" onclick="openMediaModal('tv-general', 'Chaîne Générale')">Agrandir</button>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-5">
+        <div class="col-lg-6">
           <div class="card border-0 shadow-sm h-100">
-            <div class="card-header bg-primary text-white">
-              <h5 class="mb-0">?? Radio en boucle</h5>
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">Hommages de [Nom du Fidèle]</h5>
+              <span class="badge bg-light text-primary">Spécifique</span>
             </div>
-            <div class="card-body d-flex flex-column justify-content-center">
-              <p class="fw-semibold mb-2">Radio Portail EPC</p>
-              <audio controls style="width: 100%;" loop>
-                <source src="https://votre-lien-audio.mp3" type="audio/mpeg">
-                Votre navigateur ne supporte pas l'audio HTML5.
+            <div class="card-body p-0">
+              <div class="ratio ratio-16x9">
+                <iframe id="tv-specific" src="https://www.youtube-nocookie.com/embed/videoseries?list=SPECIFIC_TV_PLAYLIST_ID&autoplay=0&loop=1&rel=0" allowfullscreen loading="lazy"></iframe>
+              </div>
+            </div>
+            <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+              <small class="text-muted">Dédié au fidèle</small>
+              <button class="btn btn-sm btn-outline-primary" onclick="openMediaModal('tv-specific', 'Hommages spécifiques')">Agrandir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RADIO -->
+      <h4 class="mb-3">?? Radio</h4>
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">Radio Générale</h5>
+              <span class="badge bg-light text-success">En boucle</span>
+            </div>
+            <div class="card-body">
+              <audio id="radio-general" controls style="width:100%" loop>
+                <source src="https://lien-radio-generale.mp3" type="audio/mpeg">
               </audio>
-              <small class="text-muted d-block mt-2">Tourne en boucle automatiquement</small>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <small class="text-muted">Contenu commun</small>
+                <button class="btn btn-sm btn-outline-success" onclick="openMediaModal('radio-general', 'Radio Générale')">Agrandir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">Radio de [Nom du Fidèle]</h5>
+              <span class="badge bg-light text-info">Spécifique</span>
+            </div>
+            <div class="card-body">
+              <audio id="radio-specific" controls style="width:100%" loop>
+                <source src="https://lien-radio-specifique.mp3" type="audio/mpeg">
+              </audio>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <small class="text-muted">Dédié au fidèle</small>
+                <button class="btn btn-sm btn-outline-info" onclick="openMediaModal('radio-specific', 'Radio spécifique')">Agrandir</button>
+              </div>
             </div>
           </div>
         </div>
@@ -241,27 +267,60 @@
     </div>
   </footer>
 
+  <!-- Modal Agrandir -->
+  <div class="modal fade" id="mediaModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="mediaModalTitle">Média</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body" id="mediaModalBody"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer et revenir à la page</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    // ===== Changement de bannière =====
+    // Bannière
     function changeBanner(imagePath) {
-      const hero = document.getElementById('hero');
-      hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('${imagePath}')`;
+      document.getElementById('hero').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('${imagePath}')`;
       localStorage.setItem('selectedBanner', imagePath);
     }
-
-    // Restaurer la bannière choisie au chargement
-    document.addEventListener('DOMContentLoaded', function() {
-      const savedBanner = localStorage.getItem('selectedBanner');
-      if (savedBanner) {
-        changeBanner(savedBanner);
-        document.getElementById('bannerSelect').value = savedBanner;
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('selectedBanner');
+      if (saved) {
+        changeBanner(saved);
+        document.getElementById('bannerSelect').value = saved;
       }
     });
 
-    // ===== Multilingue =====
+    // Modal Agrandir
+    function openMediaModal(elementId, title) {
+      const original = document.getElementById(elementId);
+      const modalBody = document.getElementById('mediaModalBody');
+      document.getElementById('mediaModalTitle').textContent = title;
+      modalBody.innerHTML = '';
+
+      if (original.tagName === 'IFRAME') {
+        const clone = original.cloneNode(true);
+        clone.style.height = '70vh';
+        modalBody.appendChild(clone);
+      } else if (original.tagName === 'AUDIO') {
+        const clone = original.cloneNode(true);
+        clone.style.width = '100%';
+        modalBody.appendChild(clone);
+      }
+
+      new bootstrap.Modal(document.getElementById('mediaModal')).show();
+    }
+
+    // Multilingue
     const translations = {
       fr: {
         "hero-title": "En mémoire de",
@@ -289,7 +348,7 @@
         "nav-medias": "Media",
         "nav-tribute": "Tribute",
         "bio-title": "Biography",
-        "bio-text": "Write the biography of the faithful here...",
+        "bio-text": "Write the biography here...",
         "gallery-title": "Photo Gallery",
         "testimonies-title": "Testimonials",
         "medias-title": "Media",
@@ -302,9 +361,7 @@
     function changeLanguage(lang) {
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-          el.textContent = translations[lang][key];
-        }
+        if (translations[lang][key]) el.textContent = translations[lang][key];
       });
       document.documentElement.lang = lang;
     }
