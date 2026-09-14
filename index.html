@@ -3,25 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>En mémoire de [Diacre Foh juliette] – Portail EPC</title>
-  
+  <title>En mémoire de [Nom du Fidèle] – Portail EPC</title>
+
+  <!-- Sécurité -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.jsdelivr.net https://www.youtube.com https://www.youtube-nocookie.com https://fonts.googleapis.com https://fonts.gstatic.com https://*.googleusercontent.com https://i.imgur.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; img-src 'self' https: data:; frame-src https://www.youtube.com https://www.youtube-nocookie.com;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  
+
   <style>
     body {
       font-family: 'Open Sans', sans-serif;
       background-color: #f8f5f2;
       color: #333;
     }
-    h1, h2, h3 {
+    h1, h2, h3, h5 {
       font-family: 'Playfair Display', serif;
     }
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('images/photo-principale.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('images/banner-1.jpg') center/cover no-repeat;
       height: 70vh;
       min-height: 420px;
       display: flex;
@@ -29,6 +34,7 @@
       justify-content: center;
       text-align: center;
       color: white;
+      transition: background-image 0.5s ease;
     }
     .hero h1 {
       font-size: 2.8rem;
@@ -52,6 +58,13 @@
       position: absolute;
       top: 15px;
       right: 20px;
+      z-index: 1000;
+    }
+    .banner-selector {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      z-index: 1000;
     }
   </style>
 </head>
@@ -65,12 +78,21 @@
     </select>
   </div>
 
+  <!-- Sélecteur de bannière (sécurisé) -->
+  <div class="banner-selector">
+    <select id="bannerSelect" class="form-select form-select-sm" onchange="changeBanner(this.value)">
+      <option value="images/banner-1.jpg">Bannière 1</option>
+      <option value="images/banner-2.jpg">Bannière 2</option>
+      <option value="images/banner-3.jpg">Bannière 3</option>
+    </select>
+  </div>
+
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div>
       <h1 data-i18n="hero-title">En mémoire de</h1>
-      <h2 class="mt-3">[Diacre Foh juliette]</h2>
-      <p class="lead mt-3" data-i18n="dates">[01 juin 1950] – [01 juin 2026]</p>
+      <h2 class="mt-3">[Nom Complet du Fidèle]</h2>
+      <p class="lead mt-3" data-i18n="dates">[Date de naissance] – [Date de décès]</p>
     </div>
   </section>
 
@@ -86,6 +108,7 @@
           <li class="nav-item"><a class="nav-link" href="#biographie" data-i18n="nav-bio">Biographie</a></li>
           <li class="nav-item"><a class="nav-link" href="#galerie" data-i18n="nav-gallery">Galerie</a></li>
           <li class="nav-item"><a class="nav-link" href="#temoignages" data-i18n="nav-testimonies">Témoignages</a></li>
+          <li class="nav-item"><a class="nav-link" href="#medias" data-i18n="nav-medias">Médias</a></li>
           <li class="nav-item"><a class="nav-link" href="#hommage" data-i18n="nav-tribute">Hommage</a></li>
         </ul>
       </div>
@@ -99,7 +122,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-8">
           <p data-i18n="bio-text">
-            Écrivez ici la biographie du fidèle : sa vie (femme de Nsam Ndoh Ebengue), sa foi en Dieu, son engagement dans la  paroisse, sa famille à EFOULAN, ses valeurs...
+            Écrivez ici la biographie du fidèle : sa vie, sa foi, son engagement dans la paroisse, sa famille, ses valeurs...
           </p>
         </div>
       </div>
@@ -110,11 +133,24 @@
   <section id="galerie" class="section bg-white">
     <div class="container">
       <h2 class="text-center mb-5" data-i18n="gallery-title">Galerie Photos</h2>
-      <div class="row g-3">
-        <!-- Ajoute tes photos ici -->
-        <div class="col-md-4"><img src="images/photo1.jpg" class="img-fluid rounded shadow-sm" alt="Photo"></div>
-        <div class="col-md-4"><img src="images/photo2.jpg" class="img-fluid rounded shadow-sm" alt="Photo"></div>
-        <div class="col-md-4"><img src="images/photo3.jpg" class="img-fluid rounded shadow-sm" alt="Photo"></div>
+      
+      <div class="row g-3 mb-4">
+        <div class="col-md-4">
+          <img src="https://lien-direct-photo-1.jpg" class="img-fluid rounded shadow-sm" alt="Photo 1">
+        </div>
+        <div class="col-md-4">
+          <img src="https://lien-direct-photo-2.jpg" class="img-fluid rounded shadow-sm" alt="Photo 2">
+        </div>
+        <div class="col-md-4">
+          <img src="https://lien-direct-photo-3.jpg" class="img-fluid rounded shadow-sm" alt="Photo 3">
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="https://photos.google.com/share/VOTRE_ALBUM_PUBLIC" target="_blank" class="btn btn-primary btn-lg">
+          Voir l’album photos complet
+        </a>
+        <p class="text-muted mt-2"><small>Les photos sont hébergées en externe pour préserver l’espace de stockage</small></p>
       </div>
     </div>
   </section>
@@ -132,7 +168,56 @@
             </div>
           </div>
         </div>
-        <!-- Ajoute d'autres témoignages -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Médias -->
+  <section id="medias" class="section bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold" data-i18n="medias-title">Médias</h2>
+        <p class="text-muted" data-i18n="medias-subtitle">Télévision et Radio en mémoire et en hommage</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-dark text-white">
+              <h5 class="mb-0">?? Télévision en boucle</h5>
+            </div>
+            <div class="card-body p-0">
+              <div class="ratio ratio-16x9">
+                <iframe 
+                  src="https://www.youtube-nocookie.com/embed/videoseries?list=PLAYLIST_ID&autoplay=0&loop=1&rel=0" 
+                  title="Télévision Portail EPC"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen
+                  loading="lazy">
+                </iframe>
+              </div>
+            </div>
+            <div class="card-footer bg-white">
+              <small class="text-muted">Diffusion en boucle • Contenu Portail EPC</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0">?? Radio en boucle</h5>
+            </div>
+            <div class="card-body d-flex flex-column justify-content-center">
+              <p class="fw-semibold mb-2">Radio Portail EPC</p>
+              <audio controls style="width: 100%;" loop>
+                <source src="https://votre-lien-audio.mp3" type="audio/mpeg">
+                Votre navigateur ne supporte pas l'audio HTML5.
+              </audio>
+              <small class="text-muted d-block mt-2">Tourne en boucle automatiquement</small>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -145,7 +230,7 @@
     </div>
   </section>
 
-  <!-- Footer avec Disclaimer -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container text-center">
       <p>© 2026 Portail EPC – En mémoire de nos fidèles</p>
@@ -159,8 +244,24 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Multilingue simple -->
   <script>
+    // ===== Changement de bannière =====
+    function changeBanner(imagePath) {
+      const hero = document.getElementById('hero');
+      hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('${imagePath}')`;
+      localStorage.setItem('selectedBanner', imagePath);
+    }
+
+    // Restaurer la bannière choisie au chargement
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedBanner = localStorage.getItem('selectedBanner');
+      if (savedBanner) {
+        changeBanner(savedBanner);
+        document.getElementById('bannerSelect').value = savedBanner;
+      }
+    });
+
+    // ===== Multilingue =====
     const translations = {
       fr: {
         "hero-title": "En mémoire de",
@@ -168,11 +269,14 @@
         "nav-bio": "Biographie",
         "nav-gallery": "Galerie",
         "nav-testimonies": "Témoignages",
+        "nav-medias": "Médias",
         "nav-tribute": "Hommage",
         "bio-title": "Biographie",
         "bio-text": "Écrivez ici la biographie du fidèle...",
         "gallery-title": "Galerie Photos",
         "testimonies-title": "Témoignages",
+        "medias-title": "Médias",
+        "medias-subtitle": "Télévision et Radio en mémoire et en hommage",
         "tribute-title": "Hommage",
         "tribute-text": "Texte d’hommage..."
       },
@@ -182,11 +286,14 @@
         "nav-bio": "Biography",
         "nav-gallery": "Gallery",
         "nav-testimonies": "Testimonials",
+        "nav-medias": "Media",
         "nav-tribute": "Tribute",
         "bio-title": "Biography",
         "bio-text": "Write the biography of the faithful here...",
         "gallery-title": "Photo Gallery",
         "testimonies-title": "Testimonials",
+        "medias-title": "Media",
+        "medias-subtitle": "Television and Radio in memory and tribute",
         "tribute-title": "Tribute",
         "tribute-text": "Tribute text..."
       }
